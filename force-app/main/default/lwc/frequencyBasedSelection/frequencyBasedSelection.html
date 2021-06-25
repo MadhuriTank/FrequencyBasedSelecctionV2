@@ -1,0 +1,22 @@
+<template>
+	<!-- <lightning-card title="Frequency based Day Selection">
+		<lightning-checkbox-group name="Select Day" label="Select Day" options={days} value={selectedDays}
+			onchange={daySelectHandler}></lightning-checkbox-group>
+		 <label>Selected Days : {selectedDays}</label>
+	</lightning-card> -->
+	<lightning-card title="Frequency based Day Selection">
+		<lightning-combobox name="Frequency" label="Frequency" value={value} placeholder="Select Frequency"
+			options={options} onchange={handleFrequencyChange} style="width: 100px;"></lightning-combobox>
+
+		<label>Select Days : </label>
+		<template for:each={weekdays} for:item="day">
+			<lightning-layout key={day.value}>
+				<lightning-layout-item>
+					<lightning-input type="checkbox" data-day={day.value}
+						onchange={weekDaySelectHandler}></lightning-input>
+				</lightning-layout-item>
+				<lightning-layout-item>{day.label}</lightning-layout-item>
+			</lightning-layout>
+		</template>
+	</lightning-card>
+</template>
